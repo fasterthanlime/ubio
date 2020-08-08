@@ -45,6 +45,8 @@ dependencies = [
 [[package]]
 name = "ara"
 version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1a072660c142a8bfff7ec8f6bfc1bc3923186fae1705087b161028f176e55011"
 dependencies = [
  "async-trait",
  "bytes",
