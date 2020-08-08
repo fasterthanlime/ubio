@@ -45,7 +45,8 @@ pub async fn open(path: &str) -> io::Result<Box<dyn ReadAt>> {
 
 impl OpenOptions {
     /// Opens a file or HTTP resource as a `ReadAt`, using
-    /// default options: buffered with default options, default http::Opts.
+    /// default options. Note that this method does not support non-UTF8
+    /// file paths.
     async fn open(self, path: &str) -> io::Result<Box<dyn ReadAt>> {
         if path.starts_with("http:") || path.starts_with("https:") {
             let u = Url::parse(path).map_err(make_io_error)?;
