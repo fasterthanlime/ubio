@@ -1,0 +1,36 @@
+[package]
+name = "ubio"
+version = "0.1.0"
+authors = ["Amos Wenger <amoswenger@gmail.com>"]
+edition = "2018"
+
+[profile.dev.package.backtrace]
+opt-level = 3
+
+[dependencies]
+thiserror = "1.0.20"
+tokio = { version = "0.2.22", features = ["full"] }
+log = "0.4.11"
+reqwest = { version = "0.10.7", features = ["stream"] }
+url = "2.1.1"
+futures = "0.3.5"
+tracing = "0.1.17"
+tracing-futures = "0.2.4"
+color-eyre = "0.5.0"
+tracing-error = { version = "0.1.2", features = ["traced-error"] }
+bytes = "0.5.6"
+futures-util = "0.3.5"
+oorandom = "11.1.2"
+async-trait = "0.1.36"
+ara = { path = "../ara" }
+pin-project = "0.4.23"
+positioned-io = "0.2.2"
+
+[dev-dependencies]
+tracing-subscriber = "0.2.9"
+hyper = "0.13.7"
+http-serve = { git = "https://github.com/scottlamb/http-serve", rev = "9f583a1cc9c6c2d9dd5424d41237e59a2d011e1f" }
+http-body = "0.3.1"
+scopeguard = "1.1.0"
+pretty_assertions = "0.6.1"
+mktemp = "0.4.0"
