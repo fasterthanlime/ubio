@@ -1,6 +1,8 @@
 [package]
 name = "ubio"
 version = "0.1.0"
+description = "Access local files or HTTP resources with the ara ReadAt trait"
+license = "Apache-2.0 OR MIT"
 authors = ["Amos Wenger <amoswenger@gmail.com>"]
 edition = "2018"
 
