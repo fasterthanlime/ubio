@@ -37,7 +37,7 @@ impl fmt::Debug for Resource {
     }
 }
 
-#[derive(Debug, Default)]
+#[derive(Debug, Clone, Default)]
 pub struct Opts {
     headers: Option<HeaderMap<HeaderValue>>,
 }

@@ -58,8 +58,13 @@ async fn test_http_resource_inner() -> Result<(), eyre::Error> {
 
     let mut u: Url = "http://localhost/".parse().unwrap();
     u.set_port(Some(addr.port())).unwrap();
-    let ra = http::Resource::new(u).await?.into_read_at();
 
+    {
+        // check that open works
+        crate::open(u.as_str()).await.unwrap();
+    }
+
+    let ra = http::Resource::new(u).await?.into_read_at();
     test_ra(&mut rand, &data[..], ra).await;
 
     Ok(())
@@ -72,6 +77,13 @@ async fn test_file_inner() -> Result<(), eyre::Error> {
 
     let temp_file = Temp::new_file().unwrap();
     std::fs::write(&temp_file, &data[..]).unwrap();
+
+    {
+        // check that open works
+        crate::open(temp_file.as_path().to_str().unwrap())
+            .await
+            .unwrap();
+    }
 
     let f = std::fs::File::open(&temp_file).unwrap();
     let ra = File::new(f).unwrap();
